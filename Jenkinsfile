@@ -10,7 +10,7 @@ pipeline {
                 sh '''echo 'Testing app...'
                       which python
                       whoami
-                      python3 -m venv venv
+                      python3.5 -m venv venv
                       . venv/bin/activate
                       pip install -e '.[test]'
                       coverage run -m pytest
