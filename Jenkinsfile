@@ -4,7 +4,17 @@ pipeline {
     }
 
     stages {
-        
+       
+        stage('Setup VEnv'){
+            steps {
+                echo 'Installing app...'
+                which python
+                whoami
+                python3.5 -m venv venv
+                source venv/bin/activate
+                pip install -e '.[test]'
+            }
+        } 
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
