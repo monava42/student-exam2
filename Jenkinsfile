@@ -10,7 +10,7 @@ pipeline {
                 echo 'Installing app...'
                 which python
                 whoami
-                python3.5 -m venv venv
+                python3 -m venv venv
                 source venv/bin/activate
                 pip install -e '.[test]'
             }
