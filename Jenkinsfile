@@ -10,9 +10,8 @@ pipeline {
                 sh '''echo 'Testing app...'
                       which python
                       whoami
-                      sudo -l
                       python3.5 -m venv venv
-                      . venv/bin/activate
+                      source venv/bin/activate
                       pip install -e '.[test]'
                       coverage run -m pytest
                       coverage report
