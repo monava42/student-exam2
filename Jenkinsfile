@@ -10,10 +10,8 @@ pipeline {
                 sh '''echo 'Installing app...'
                         which python
                         whoami
-                        pwd
-                        python3.5 -m venv venv
+//                        python3.5 -m venv venv
                         . venv/bin/activate
-                        pwd
                         pip install -e .
                     '''
             }
