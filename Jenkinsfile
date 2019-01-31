@@ -12,17 +12,13 @@ pipeline {
                         whoami
                         python3 -m venv venv
                         source venv/bin/activate
-                        pip install -e '.[test]'
+                        pip install -e .
             }
         } 
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
-                      which python
-                      whoami
-                      python3 -m venv venv
-                      source venv/bin/activate
-                      pip install --user -e '.[test]'
+                      pip install -e '.[test]'
                       coverage run -m pytest
                       coverage report
                     '''
