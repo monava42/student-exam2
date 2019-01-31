@@ -7,7 +7,7 @@ pipeline {
        
         stage('Setup VEnv'){
             steps {
-                '''echo 'Installing app...'
+                sh '''echo 'Installing app...'
                         which python
                         whoami
                         python3 -m venv venv
