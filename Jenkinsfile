@@ -10,6 +10,7 @@ pipeline {
                 sh '''echo 'Testing app...'
                       which pip
                       which python
+                      whoami
                       pip install -e '.[test]'
                       coverage run -m pytest
                       coverage report
