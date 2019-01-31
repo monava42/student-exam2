@@ -11,7 +11,7 @@ pipeline {
                       which python
                       whoami
                       python3.5 -m venv venv
-                      . venv/bin/activate
+                      source venv/bin/activate
                       pip install --user -e '.[test]'
                       coverage run -m pytest
                       coverage report
