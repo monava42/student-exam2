@@ -36,7 +36,7 @@ pipeline {
         stage('Push docker image'){
             steps {
                 sh '''echo 'Building...'
-                      sudo docker tag agent:${BUILD_TAG} ${LOG_USR} /monavaft:agent:${BUILD_TAG}
+                      sudo docker tag agent:${BUILD_TAG} ${LOG_USR}{/}monavaft:agent:${BUILD_TAG}
                       sudo docker push ${LOG_USR}/monavaft
                     '''
             }
