@@ -27,7 +27,7 @@ pipeline {
         stage('Docker image build'){
             steps {
                 sh '''echo 'Building...'
-                      sudo docker build -t agent:${BUILD_TAG}.
+                      sudo docker build -t agent{:}${BUILD_TAG}.
                       sudo docker images | grep agent:${BUILD_TAG}
                     '''
             }
