@@ -11,7 +11,7 @@ pipeline {
                         which python
                         whoami
                         python3.5 -m venv venv
-                        source venv/bin/activate
+                        . venv/bin/activate
                         pip install -e .
                     '''
             }
