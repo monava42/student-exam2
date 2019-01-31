@@ -17,7 +17,7 @@ pipeline {
         } 
         stage('Python test'){
             steps {
-                sh '''echo 'Testing app...'
+                bash '''echo 'Testing app...'
                       pip install -e '.[test]'
                       coverage run -m pytest
                       coverage report
@@ -26,8 +26,8 @@ pipeline {
         }
         stage('Docker image build'){
             steps {
-                sh '''echo 'Building...'
-                      sudo docker build -t agent{:}${BUILD_TAG}.
+                bash '''echo 'Building...'
+                      sudo docker build -t agent\:\${BUILD_TAG}.
                       sudo docker images | grep agent:${BUILD_TAG}
                     '''
             }
