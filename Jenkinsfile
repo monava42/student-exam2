@@ -7,7 +7,7 @@ pipeline {
        
         stage('Setup VEnv'){
             steps {
-                bash '''echo 'Installing app...'
+                '''echo 'Installing app...'
                         which python
                         whoami
                         python3 -m venv venv
@@ -18,7 +18,7 @@ pipeline {
         } 
         stage('Python test'){
             steps {
-                bash '''echo 'Testing app...'
+                sh '''echo 'Testing app...'
                       pip install -e '.[test]'
                       coverage run -m pytest
                       coverage report
