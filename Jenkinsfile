@@ -31,6 +31,7 @@ pipeline {
             steps {
                 sh '''echo 'Authenticating...'
                       sudo docker login -u ${LOG_USR} -p ${LOG_PSW}'
+                    '''
             }
         }
         stage('Push docker image'){
