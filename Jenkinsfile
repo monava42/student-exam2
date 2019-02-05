@@ -12,7 +12,7 @@ pipeline {
                         whoami
                         pwd
                         python3.5 -m venv venv
-                        . venv/bin/activate
+                        source venv/bin/activate
                     '''
             }
         } 
