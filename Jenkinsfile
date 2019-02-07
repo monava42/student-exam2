@@ -14,13 +14,12 @@ pipeline {
                     '''
             }
         }
-        def myImg
         stage('Docker image build'){
             steps {
                 sh '''echo 'Building...'
                     '''
                 script {
-                    myImg = docker.build("agent:$BUILD_ID")
+                    env.myImg = docker.build("agent:$BUILD_ID")
                 }
             }
         }
