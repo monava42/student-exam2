@@ -13,6 +13,8 @@ pipeline {
                         pwd
                         python3.5 -m venv venv
                         . venv/bin/activate
+                        echo $VIRTUAL_ENV
+                        echo $PS1
                     '''
             }
         } 
