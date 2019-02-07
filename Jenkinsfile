@@ -19,9 +19,7 @@ pipeline {
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
-                      pwd
                       . venv/bin/activate
-                      echo $PS1
                       pip install -e ".[test]"
                       echo $PS1
                       coverage run -m pytest
