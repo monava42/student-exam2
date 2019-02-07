@@ -21,9 +21,9 @@ pipeline {
                 sh '''echo 'Testing app...'
                       . venv/bin/activate
                       withPythonEnv('venv'){
-                          pysh 'pip install -e '.[test]''
-                          pysh 'coverage run -m pytest'
-                          pysh 'coverage report'
+                          pip install -e '.[test]'
+                          coverage run -m pytest
+                          coverage report
                       }
                     '''
             }
