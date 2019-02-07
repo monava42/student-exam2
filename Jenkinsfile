@@ -23,7 +23,7 @@ pipeline {
                 sh '''echo 'Testing app...'
                       . venv/bin/activate
                       echo $PS1
-                      pip install -e '.[test]'
+                      pip install '.[test]'
                       echo $PS1
                       coverage run -m pytest
                       coverage report
