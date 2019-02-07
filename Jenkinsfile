@@ -20,10 +20,11 @@ pipeline {
             steps {
                 sh '''echo 'Testing app...'
                       . venv/bin/activate
-                      pip install -e ".[test]"
-                      echo $PS1
-                      coverage run -m pytest
-                      coverage report
+                      withPythonEnv('venv'){
+                          pysh 'pip install -e '.[test]''
+                          pysh 'coverage run -m pytest'
+                          pysh 'coverage report'
+                      }
                     '''
             }
         }
