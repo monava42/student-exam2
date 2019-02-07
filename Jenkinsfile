@@ -21,7 +21,9 @@ pipeline {
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
+                      echo #PS1
                       pip install -e '.[test]'
+                      echo $PS1
                       coverage run -m pytest
                       coverage report
                     '''
