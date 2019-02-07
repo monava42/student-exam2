@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Docker image build'){
             steps {
-                sh 'echo 'Building...'
+                sh 'echo 'Building...''
                 dockerCmd 'build -t agent:${BUILD_TAG}'
                 
             }
