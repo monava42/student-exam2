@@ -4,18 +4,6 @@ pipeline {
     }
 
     stages {
-       
-        stage('Setup VEnv'){
-            steps {
-                sh '''echo 'Installing app...'
-                        which python
-                        whoami
-                        pwd
-                        python3.5 -m venv venv
-                        . venv/bin/activate
-                    '''
-            }
-        } 
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
@@ -29,14 +17,10 @@ pipeline {
         }
         stage('Docker image build'){
             steps {
-                script {
-                    def customImage = docker.build("agent:${env.BUILD_ID}")
-                    customImage.push()
-                }
-//                bash '''echo 'Building...'
-//                      sudo docker build -t agent\:\${BUILD_TAG}.
-//                      sudo docker images | grep agent:${BUILD_TAG}
-//                    '''
+                sh '''echo 'Building...'
+                      sudo docker build -t agent\:\${BUILD_TAG}.
+                      sudo docker images | grep agent:${BUILD_TAG}
+                    '''
             }
         }
         stage('Docker hub authentication'){
