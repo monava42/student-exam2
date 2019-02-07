@@ -19,7 +19,7 @@ pipeline {
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
-                      pip install -e '.[test]'
+                      sudo pip install -e '.[test]'
                       coverage run -m pytest
                       coverage report
                     '''
