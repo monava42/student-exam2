@@ -19,8 +19,8 @@ pipeline {
             steps {
                 sh '''echo 'Building...'
                       sudo docker.build("agent:${env.BUILD_ID}")
-//                      sudo docker build -t agent\:\${BUILD_TAG}.
-//                      sudo docker images | grep agent:${BUILD_TAG}
+                      #sudo docker build -t agent\:\${BUILD_TAG}.
+                      #sudo docker images | grep agent:${BUILD_TAG}
                     '''
             }
         }
