@@ -19,12 +19,11 @@ pipeline {
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
+                      python3.5 -m venv venv
                       . venv/bin/activate
-                      withPythonEnv('venv'){
-                          pip install -e '.[test]'
-                          coverage run -m pytest
-                          coverage report
-                      }
+                      pip install -e '.[test]'
+                      coverage run -m pytest
+                      coverage report
                     '''
             }
         }
