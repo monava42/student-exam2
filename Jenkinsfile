@@ -2,7 +2,6 @@ pipeline {
     agent {
         node { label 'agent1' }
     }
-    def myimg
     stages {
         stage('Python test'){
             steps {
@@ -19,7 +18,7 @@ pipeline {
             steps {
                 sh '''echo 'Building...'
                     '''
-                myimg = docker.build'agent:$BUILD_ID'
+                docker.build('agent:$BUILD_ID')
             }
         }
         stage('Docker hub authentication'){
