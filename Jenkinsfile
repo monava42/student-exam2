@@ -16,9 +16,11 @@ pipeline {
             }
         }
         stage('Docker image build'){
+            def myimg
             steps {
-                sh '''echo 'Building...''''
-                dockerCmd 'build -t agent:${BUILD_TAG}'
+                sh '''echo 'Building...'
+                    '''
+                myimg = docker.build'agent:$BUILD_ID'
                 
             }
         }
