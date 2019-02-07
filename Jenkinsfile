@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh '''echo 'Building...'
                     '''
-                sudo docker.build("agent:${env.BUILD_ID}")
+                dockerCmd 'build -t agent\:\${BUILD_TAG}'
                 
             }
         }
@@ -29,15 +29,15 @@ pipeline {
             }
             steps {
                 sh '''echo 'Authenticating...'
-                      sudo docker login -u ${LOG_USR} -p ${LOG_PSW}'
+                      docker login -u ${LOG_USR} -p ${LOG_PSW}'
                     '''
             }
         }
         stage('Push docker image'){
             steps {
                 sh '''echo 'Building...'
-                      sudo docker tag agent:${BUILD_TAG} ${LOG_USR}{/}monavaft:agent:${BUILD_TAG}
-                      sudo docker push ${LOG_USR}/monavaft
+                      docker tag agent:${BUILD_ID} ${LOG_USR}{/}monavaft:agent:${BUILD_ID}
+                      docker push ${LOG_USR}/monavaft
                     '''
             }
         }
