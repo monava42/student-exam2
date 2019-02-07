@@ -18,8 +18,9 @@ pipeline {
         stage('Docker image build'){
             steps {
                 sh '''echo 'Building...'
-                      sudo docker.build("agent:${env.BUILD_ID}")
                     '''
+                sudo docker.build("agent:${env.BUILD_ID}")
+                
             }
         }
         stage('Docker hub authentication'){
