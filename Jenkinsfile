@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh '''echo 'Building...'
                     '''
-                dockerCmd 'build -t agent\:\${BUILD_TAG}'
+                dockerCmd 'build -t agent:${BUILD_TAG}'
                 
             }
         }
