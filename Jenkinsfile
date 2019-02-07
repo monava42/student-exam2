@@ -18,7 +18,9 @@ pipeline {
             steps {
                 sh '''echo 'Building...'
                     '''
-                docker.build("agent:$BUILD_ID")
+                script {
+                    docker.build("agent:$BUILD_ID")
+                }
             }
         }
         stage('Docker hub authentication'){
