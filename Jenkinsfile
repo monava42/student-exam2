@@ -13,17 +13,16 @@ pipeline {
                         pwd
                         python3.5 -m venv venv
                         . venv/bin/activate
-                        echo $VIRTUAL_ENV
-                        echo $PS1
                     '''
             }
         } 
         stage('Python test'){
             steps {
                 sh '''echo 'Testing app...'
+                      pwd
                       . venv/bin/activate
                       echo $PS1
-                      pip install '.[test]'
+                      pip install -e ".[test]"
                       echo $PS1
                       coverage run -m pytest
                       coverage report
