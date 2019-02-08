@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+       LOG = credentials('dockerhub') 
+    }
     agent {
         node { label 'agent1' }
     }
