@@ -40,7 +40,7 @@ pipeline {
             steps {
                 sh '''echo 'Building...'
                       docker tag agent:${BUILD_ID} hopenohype/monavaft:agent:${BUILD_ID}
-                      docker push ${LOG_USR}/monavaft
+                      docker push hopenohype/monavaft
                     '''
             }
         }
