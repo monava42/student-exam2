@@ -19,7 +19,7 @@ pipeline {
                 sh '''echo 'Building...'
                     '''
                 script {
-                    env.myImg = docker.build("agent:$BUILD_ID")
+                    env.myImg = docker.build("agent-$BUILD_ID")
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Push docker image'){
             steps {
                 sh '''echo 'Building...'
-                      docker tag agent:${BUILD_ID} monavaft:agent:${BUILD_ID}
+                      docker tag myImg  "monavaft:agent-${BUILD_ID}"
                       docker push hopenohype/monavaft
                     '''
             }
