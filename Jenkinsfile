@@ -20,7 +20,6 @@ pipeline {
                     '''
                 script {
                     env.myImg = docker.build("agent:$BUILD_ID")
-                    dockerFingerprintFrom([dockerfile: "."])
                 }
             }
         }
