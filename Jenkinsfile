@@ -35,8 +35,8 @@ pipeline {
         }
         stage('Push docker image'){
             steps {
-                sh '''echo 'Building...'
-                      docker tag myImg  "monavaft:agent-${BUILD_ID}"
+                sh '''echo 'Pushing...'
+                      docker tag agent-$BUILD_ID "hopenohype/monavaft:agent-${BUILD_ID}"
                       docker push hopenohype/monavaft
                     '''
             }
