@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 sh '''echo 'Authenticating...'
-                      docker login -u ${LOG_USR} -p ${LOG_PSW}'
+                      docker login -u ${LOG_USR} -p ${LOG_PSW}
                     '''
             }
         }
