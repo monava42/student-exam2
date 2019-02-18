@@ -4,8 +4,9 @@ pipeline {
     }
     stages {
         stage('Python test'){
-            steps {
-                sh '''echo 'Testing app...'
+           steps {
+                sh '''rm -rf ./workspace/Task12_CI/venv 
+		      echo 'Testing app...'
                       python3.5 -m venv venv
                       . venv/bin/activate
                       pip install -e '.[test]'
